@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %} Edit Profile {% endblock %}
+
+{% block navigation %}
+{% include "includes/navigation.html" %}
+{% endblock %}
+
+{% block content %}
+      <div class="row">
+        <div class = "col-md-3">
+          <img src="{{ grumbler.image.url }}" alt="profilePic" class="profile-picture"> 
+           <strong> <h3> {{ grumbler.user.username }} </h3> </strong> 
+           <div class="row">
+              <div class="col-xs-4">
+                Grumbls <br> 20
+              </div>
+              <div class="col-xs-4">
+                Followers <br> 2
+              </div>
+              <div class="col-xs-4">
+                Following <br> 2
+              </div>
+           </div>
+              {% if grumbler.user.id != ugrumbler.user.id %}
+                <form action="/follow/{{grumbler.user.id}}" method="post">
+                    {% if ugrumbler in grumbler.followers.all %}
+                      <input type="submit" class="btn btn-primary" value="Following">
+                    {% else %}
+                      <input type="submit" class="btn btn-primary" value="Follow">
+                    {% endif %}
+                  {% csrf_token %}
+                </form>
+                <form action="/block/{{grumbler.user.id}}" method="post">
+                    {% if grumbler in ugrumbler.blockers.all %}
+                      <input type="submit" class="btn btn-primary" value="Unblock">
+                    {% else %}
+                      <input type="submit" class="btn btn-primary" value="Block">
+                    {% endif %}
+                  {% csrf_token %}
+                </form>
+              {% endif %}
+           <ul class="list-group">
+            <li class="list-group-item">  
+              Followers      
+            </li>
+            <li class="list-group-item">
+              {% for follower in grumbler.followers.all %}
+              <img src="{{ follower.image.url }}" alt="Follower" class="profile-picture-medium"> 
+              <div> <a href="/follow/{{follower.user.id}}"> {{ follower.user.username }} </a> </div>
+              {% endfor %}
+            </li>
+
+           </ul>
+           <ul class="list-group">
+            <li class="list-group-item">  
+              Following      
+            </li>
+            <li class="list-group-item">
+              {% for following in grumbler.following.all %}
+                <img src="{{ following.image.url }}" alt="Following" class="profile-picture-medium"> 
+                <div> <a href="/follow/{{following.user.id}}"> {{ following.user.username }} </a> </div>
+              {% endfor %}
+            </li>
+           </ul>
+
+        </div>
+        <div class="col-md-offset-3">
+          {% block right-content %}
+          {% endblock %}
+        </div>
+      </div>
+{% endblock %}

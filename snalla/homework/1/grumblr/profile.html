@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> grumblr </title>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li> <a href="home.html"> Home </a></li>
+          <li class="active"> <a href="#"> Profile </a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li> <input type="search" class="form-control searchbar" name="searchkey" placeholder="Search grumblr"/> </li>
+          <li> <a href="index.html"> Logout </a> </li>
+        </ul>
+      </div>
+
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class = "col-md-3">
+          <img src="jen.jpg" alt="jennifer lawrence" class="profile-picture"> 
+           <strong> <h3> Jennifer Lawrence </h3> </strong> 
+           <div class="row">
+              <div class="col-xs-4">
+                Grumbls <br> 20
+              </div>
+              <div class="col-xs-4">
+                Followers <br> 2
+              </div>
+              <div class="col-xs-4">
+                Following <br> 2
+              </div>
+           </div>
+           <button type="button" class="btn btn-primary"> Edit Profile </button>
+           <ul class="list-group">
+            <li class="list-group-item">  
+              Followers      
+            </li>
+            <li class="list-group-item">
+              <img src="tatum.png" alt="tatum" class="profile-picture-medium"> 
+              <img src="ryan.png" alt="ryan" class="profile-picture-medium"> 
+            </li>
+
+           </ul>
+           <ul class="list-group">
+            <li class="list-group-item">  
+              Following      
+            </li>
+            <li class="list-group-item">
+              <img src="tatum.png" alt="tatum" class="profile-picture-medium"> 
+              <img src="ryan.png" alt="ryan" class="profile-picture-medium"> 
+            </li>
+
+           </ul>
+
+        </div>
+        <div class="col-md-offset-3">
+          <div class="new-post">
+            <span>
+              <ul class="list-group">
+                    <textarea class="form-control" id="post-text-area" rows="3"></textarea>
+                  <li class="list-group-item post-bottom-bar"> 
+                    <div class="glyphicon glyphicon-camera"> </div> Add Photo
+                    <button type="button" class="btn btn-primary post-button">Post</button> 
+                  </li>
+              </ul>
+            </span>
+          </div>
+          <!-- sample post -->
+          <ul class="list-group">
+            <li class="list-group-item"> 
+              <img src="jen.jpg" alt="jen" class="profile-picture-thumbnail">
+              <div class="comment">
+                <strong> Jennifer Lawrence </strong> Sept 4
+                <br>
+                  I need a trip to Iceland.
+              </div>
+            </li>
+            <li class="list-group-item"> 
+              James Franco and 2 others disliked this 
+              <span class="glyphicon glyphicon-thumbs-down pull-right"></span>
+            </li>
+            <li class="list-group-item"> <a href="#"> View 4 more comments </a> </li>
+            <li class="list-group-item">               
+              <img src="ryan.png" alt="ryan" class="profile-picture-thumbnail">
+              <div class="comment">
+                  <strong> Ryan Gosling </strong> girl, Spain.
+              </div>
+            </li>
+            <li class="list-group-item">  
+              <img src="jen.jpg" alt="jennifer lawrence" class="profile-picture-thumbnail"> 
+              <div class="comment-input"> 
+                <input type="text" class="form-control" name="name" placeholder="Comment"/> 
+              </div>        
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

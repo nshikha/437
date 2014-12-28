@@ -1,0 +1,56 @@
+
+.searchbar {
+ 	position: relative;
+	top: 50%;
+	transform: translateY(25%);
+}
+
+.signup {
+	margin-top: 20px;
+}
+
+#post-text-area.form-control {
+	resize: none;
+	border-bottom: none;
+	border-bottom-right-radius: none;
+	border-bottom-left-radius: none;
+}
+
+#post-text-area:focus {
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.post-bottom-bar {
+	background: #dedede;
+}
+
+.profile-picture-thumbnail {
+	width: 50px;
+	height: 50px;
+	padding: none;
+	margin-right: 20px;
+}
+
+.profile-picture {
+	width: 240px;
+	height: 240px;
+}
+
+.comment {
+	display: inline-block;
+}
+
+.comment-input {
+
+}
+
+.profile-picture-medium {
+	width: 100px;
+	height: 100px;
+}
+
+

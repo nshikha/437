@@ -1,0 +1,16 @@
+<ul class="nav navbar-nav">
+    <li> <a href="/feed"> Grumblr Feed </a></li>
+    <li class="active"> <a href="/profile"> Profile </a></li>
+    <li> <a href="/users"> Users </a></li>
+    <li> <a href="/edit"> Settings </a> </li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+    <li> 
+        <form action="/search" method="get">
+            <input type="search" class="form-control searchbar" name="keyword" 
+                    placeholder="Search grumblr"> 
+            {% csrf_token %}
+        </form>
+    </li>
+    <li> <a href="/logout"> Logout </a> </li>
+</ul>

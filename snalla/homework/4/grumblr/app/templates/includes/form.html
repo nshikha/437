@@ -1,0 +1,19 @@
+{% load widget_tweaks %}
+<div>
+    {% for error in form.non_field_errors %}
+    <p style="color:red">
+        {{error}}
+     </p>
+    {% endfor %}
+</div>
+{% for field in form.visible_fields %}
+<div class="form-group">
+    {{field.label_tag}}
+    {{field | add_class:"form-control"}}
+     <p style="color:red"> {{field.errors}} </p>
+</div>
+{% endfor %}
+<div>
+    <input type="submit" class="btn btn-large btn-primary" value="Submit"> 
+</div>
+{% csrf_token %}

@@ -1,0 +1,53 @@
+          <div class="new-post">
+              <ul class="list-group">
+                <form action="/profile" method="post">
+                  <textarea name="text" class="form-control" id="post-text-area" rows="3"></textarea>
+                  <li class="list-group-item post-bottom-bar"> 
+                    <div class="glyphicon glyphicon-camera"> </div> Add Photo
+                    <input type="submit" class="btn btn-primary post-button" value="Submit">
+                  </li>
+                  {% csrf_token %}
+                </form>
+              </ul>
+          </div>
+          {% for post in posts %}
+          <ul class="list-group">
+              <li class="list-group-item"> 
+                <img src="{{ post.author.image.url }}" alt="profilePic" class="profile-picture-thumbnail">
+                <div class="comment">
+                  <strong> {{ post.author.user.username }} </strong> 
+                  {{ post.published_date|date:"N j, Y" }}
+                  <br>
+                    {{ post }}
+                </div>
+              </li>
+              <ul>
+                  <li class="list-group-item"> 
+                      <a href="{{base}}/dislike/{{post.id}}"> Dislike </a>
+                      <span class="glyphicon glyphicon-thumbs-down"> 
+                      </span>
+                      {% if posts.dislikes|length > 0 %}
+                        {{ post.dislikes | first }}
+                      {% endif %}
+                  </li>
+                  {% for comment in post.comment_set.all %}
+                      <li class="list-group-item"> 
+                          <img src="{{ comment.author.image.url }}" alt="ryan" class="profile-picture-thumbnail">
+                          <div class="comment">
+                              <strong> {{comment.author.user.username }} </strong> {{comment.published_date|date:"N j, Y" }} 
+                              <br> {{comment}}
+                          </div>
+                      </li>
+                  {% endfor %}
+                  <li class="list-group-item">  
+                      <form action="{{base}}/posts/{{post.id}}" method="post">
+                          <img src="{{ ugrumbler.image.url }}" alt="profilePic" class="profile-picture-thumbnail"> 
+                          <div class="comment">
+                              <input type="text" class="form-control comment-input" name="comment" placeholder="Comment">
+                          </div>
+                          {% csrf_token %}
+                      </form> 
+                  </li>
+              </ul>
+          </ul>
+          {% endfor %}

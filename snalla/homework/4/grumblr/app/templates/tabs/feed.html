@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %} Grumblr Feed {% endblock %}
+
+{% block navigation %}
+{% include "includes/navigation.html" %}
+{% endblock %}
+
+{% block content %}
+{% with '/feed' as base %}
+  {% include "includes/posts.html" %}
+{% endwith %}
+{% endblock %}

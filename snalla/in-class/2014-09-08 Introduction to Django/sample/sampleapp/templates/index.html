@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title> Course Registration </title>
+</head>
+
+<body>
+	<form action="/registration/index" method="post">
+		<input type="text" placeholder="Student Name" name="student">
+		{% csrf_token %}
+		<input type="submit" value="Add Student">
+	</form>
+	<form action="/registration/index" method="post">
+		<input type="text" placeholder="Course Name" name="course">
+		{% csrf_token %}
+		<input type="submit" value="Add Course">
+	</form>
+		<form action="/registration/index" method="post">
+		<select name="student">
+		{% for student in students %}
+		<option value={{student}}> {{student}} </option>
+		{% endfor %}
+		</select>
+		<select name="course">
+		{% for course in courses %}
+		<option value={{course}}> {{course}} </option>
+		{% endfor %}
+		</select>
+		{% csrf_token %}
+		<input type="submit" value="Register Student for Course">
+	</form>
+	<ul>
+	{% for student in students %}
+	<li> {{ student }} </li>
+	{% endfor %}
+	</ul>
+	<ul>
+	{% for course, students in courses.items %}
+	<li> {{ course }} : </li> <br>
+		<ul>
+			{% for student in students %}
+			<li> {{student}} </li>
+			{% endfor %}
+		</ulm>
+	{% endfor %}
+	</ul>
+</body>
+</html>

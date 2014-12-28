@@ -1,0 +1,10 @@
+{% extends "baseprofile.html" %}
+
+{% block title %} Profile {% endblock %}
+
+{% block right-content %}
+{% with '/profile' as base %}
+  {% include "includes/posts.html" %}
+{% endwith %}
+{% endblock %}
+

@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>
+		Django Calculator
+	</title>
+	<meta charset="utf-8"/>
+</head>
+
+<body>
+	<form action="/" method="get">
+		<input type="hidden" name="firstNumber" value={{firstNumber}}>
+		<input type="hidden" name="secondNumber" value={{secondNumber}}>
+		<input type="hidden" name="currentOperation" value={{currentOperation}}>
+		<input type="text" name="display" readonly value={{display}}>
+		<div>
+			{% for digit in digits %}
+			<input type="submit" name="selection" value={{digit}}>
+			{% endfor %}
+			<br>
+			{% for operation in operations %}
+			<input type="submit" name="selection" value={{operation}}>
+			{% endfor %}
+		</div>
+		{% csrf_token %}
+	</form>
+
+</body>
+
+</html>

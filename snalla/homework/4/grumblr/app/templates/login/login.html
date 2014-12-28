@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %} Login {% endblock %}
+
+{% block content %}
+      <div class="row">
+        <form role="form" action="/login" method="post">
+          <div class="col-md-3 col-md-offset-4 panel panel-default">
+            <div class="panel-body">
+              <h3> Login </h3> 
+              <div class="form-group">
+                <label for="username"> Username </label>
+                <input type="username" class="form-control" name="username"/>
+              </div>
+              <div class="form-group">
+                <label for="password"> Password </label>
+                <input type="password" class="form-control" name="password"/>
+                <a href="#"> Forgot Password? </a>
+              </div>
+              <div>
+                  <input type="submit" class="btn btn-large btn-primary" value="Log in"> 
+              </div>
+              <div class="signup">
+                New to grumblr? <a href="/register"> Sign up </a>
+              </div>
+            </div>
+          </div>
+          {% csrf_token %}
+        </form>
+      </div>
+{% endblock %}
